@@ -1,30 +1,6 @@
 <?php
 require_once '../_models/select.php';
 require_once '../_models/crud.php';
-
-echo select::gridGrupos($id);
-echo "<br/>";
-echo "<br/>";
-$arr = crud::select(select::gridGrupos($id));
-print_r($arr);
-echo "<br/>";
-var_dump($arr);
-echo "<br/>";
-
-
-               /* while ($gridGrupo = crud::select(select::gridGrupos($id))){
-                    echo "<tr>";
-                    echo '<th scope="row">'.$gridGrupo['id_grupo'].'</th>';
-                    echo '<td>'.$gridGrupo['nome'].'</td>';
-                    echo '<td>'.' '.'</td>';
-                    echo '<td align="right"><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalGrupos" data-idgrupo="'.$gridGrupo['id_grupo'].'" data-whatever="'.$gridGrupo['nome'].'">Alterar</button>'.
-                        ' '.
-                        '<a href="grupos.php?action=excluir&id='.$gridGrupo['id_grupo'].'"><button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
-                    echo '</tr>';
-                }*/
-
-
-exit();
 ?>
 
 <!doctype html>
@@ -107,8 +83,8 @@ exit();
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                while ($gridGrupo = crud::select()){
+                <?php // Neste ponto não consegui fazer o while exibir o resultado, ele esta entrando em loop infinito.
+                while ( $gridGrupo = crud::select(select::gridGrupos(10)) ){
                     echo "<tr>";
                     echo '<th scope="row">'.$gridGrupo['id_grupo'].'</th>';
                     echo '<td>'.$gridGrupo['nome'].'</td>';
