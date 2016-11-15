@@ -1,4 +1,6 @@
-<?php //require_once '../_controllers/start_sessao.php';
+<?php require_once '../_controllers/start_sessao.php';
+
+
 /**
  * Created by PhpStorm.
  * User: jean
@@ -7,7 +9,7 @@
  */
 class select
 {
-    public static function gridGrupos($id){
+    public static function grupos($id){
         $gridGrupos = 'select * from grupos where id_usuario='.$id;
         return $gridGrupos;
     }

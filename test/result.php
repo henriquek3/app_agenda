@@ -1,38 +1,38 @@
 <?php
 require_once '../_models/select.php';
-require_once '../_models/crud.php';
-require "../_models/conexao.php";
+require_once '../_models/pdo.php';
 
-echo select::gridGrupos(10);
-echo "<br/>";
-echo "<br/>";
-print_r( crud::select(select::gridGrupos(10)));
-echo "<br/>";
-echo "<br/>";
+$pdo = new pdoinit();
 
-/* while ($arr = crud::select(select::gridGrupos(10))){
-    echo $arr['nome'];
-    echo "<br/>";
-} */
-//$arr = crud::select(select::gridGrupos(10));
-
-$query = new crud();
-$teste = $query->query('select * from grupos');
-echo $teste;
-
-echo "<br/>";
-echo "<br/>";
+$result = $pdo->prepare(select::gridGrupos(10));
+$result->execute();
 
 
-$sqlConsGrupos = 'select * from grupos where id_usuario=10';
-$resultGrupos = pg_query($conn, $sqlConsGrupos);
-//$gridGrupos = pg_fetch_assoc($resultGrupos);
-//print_r($gridGrupos);
 
-echo "<br/>";
+echo '<hr/>';
+?>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Grupos</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    while ($arr = $result->fetch()){
+        echo "<tr>";
+        echo '<th scope="row">'.$arr['id_grupo'].'</th>';
+        echo '<td>'.$arr['nome'].'</td>';
+        echo '<td>'.' '.'</td>';
+        echo '<td align="right"><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalGrupos" data-idgrupo="'.$arr['id_grupo'].'" data-whatever="'.$arr['nome'].'">Alterar</button>'.
+            ' '.
+            '<a href="grupos.php?action=excluir&id='.$arr['id_grupo'].'"><button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
+        echo '</tr>';
+    }
 
-while ($row = $arr){
-    echo "Teste -> ".$row['nome'];
-    echo "<br/>";
-}
-
+?>
+    </tbody>
+    </table>

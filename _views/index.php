@@ -28,12 +28,8 @@
 </head>
 
 <body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
 <header>
-    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top" style="background-color: lightsteelblue">
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
             <ul class="nav navbar-nav">
@@ -58,102 +54,101 @@
     </nav>
 </header>
 <br/>
+<br/>
+<br/>
 <section class="container">
-    <form name="frmCadastro" method="post" action="cadastra_contatos.php">
-        <div class="form-group row">
-            <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
-            <div class="col-xs-4">
-                <input class="form-control" type="text" placeholder="Nome" id="nome" name="nome">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="celular" class="col-xs-2 col-form-label">Telefone: </label>
-            <div class="col-xs-4">
-                <input class="form-control" type="tel" placeholder="Celular" id="celular" name="celular">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="email" class="col-xs-2 col-form-label">Email: </label>
-            <div class="col-xs-4">
-                <input class="form-control" type="email" placeholder="seu@email.com" id="email" name="email">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="endereco" class="col-xs-2 col-form-label">Endereço: </label>
-            <div class="col-xs-4">
-                <input class="form-control" type="text" placeholder="Esconderijo" id="endereco" name="endereco">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="aniversario" class="col-xs-2 col-form-label">Aniversário: </label>
-            <div class="col-xs-4">
-                <input class="form-control" type="date" value="1975-04-04" id="aniversario" name="nascimento">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-2">Favorito: </label>
-            <div class="col-xs-4">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="favorito">
-                        <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true"> Ativo </a>
-                    </label>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2>Cadastro de Contatos</h2>
+        <fieldset class="form-control">
+            <form name="frmCadastro" method="post" action="cadastra_contatos.php">
+                <div class="form-group row">
+                    <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
+                    <div class="col-xs-5">
+                        <input class="form-control" type="text" placeholder="Nome" id="nome" name="nome">
+                    </div>
+                    <label for="celular" class="col-xs-1 col-form-label">Fone: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control" type="tel" placeholder="Celular" id="celular" name="celular">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-xs-2 col-form-label" for="grupos">Grupos: </label>
-            <div class="col-xs-4">
-                <select class="form-control" id="grupos" name="grupos">
-                    <option selected>selecione</option>
-                    <?php
-                    while($select = pg_fetch_assoc($resultSelectGrupos))
-                    {
-                        echo '<option value="'.$select['id_grupo'].'">'.$select['nome']."</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-xs-2 col-form-label" for="cidades">Estado: </label>
-            <div class="col-xs-4">
-                <select class="form-control" id="cidades" name="cidades">
-                    <option selected>selecione</option>
-                    <?php
-                    while($estados = pg_fetch_assoc($resultEstados))
-                    {
-                        echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-xs-2 col-form-label" for="cidades">Cidade: </label>
-            <div class="col-xs-4">
-                <select class="form-control" id="cidades" name="cidades">
-                    <option selected>selecione</option>
-                    <?php
-                    while($cidades = pg_fetch_assoc($resultCidades))
-                    {
-                        echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="exampleTextarea" class="col-xs-2 col-form-label">Observações: </label>
-            <div class="col-xs-4">
-                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="O conheço de algum lugar.." name="observacoes"></textarea>
-            </div>
-        </div>
-        <div class="col-xs-6" align="right">
-            <button type="submit" class="btn btn-outline-primary">Incluir</button>
-            <button type="reset" class="btn btn-outline-info">Limpar</button>
-        </div>
-    </form>
+                <div class="form-group row">
+                    <label for="endereco" class="col-xs-2 col-form-label">Endereço: </label>
+                    <div class="col-xs-5">
+                        <input class="form-control" type="text" placeholder="Endereço" id="endereco" name="endereco">
+                    </div>
+                    <label for="email" class="col-xs-1 col-form-label">Email: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control" type="email" placeholder="seu@email.com" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="aniversario" class="col-xs-2 col-form-label">Aniversário: </label>
+                    <div class="col-xs-5">
+                        <input class="form-control" type="date"  id="aniversario" name="nascimento">
+                    </div>
+                    <label class="col-sm-2 col-form-label">Favorito: </label>
+                    <div class="col-xs-1">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="favorito">
+                                <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true"> Ativo </a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xs-1 col-form-label" for="grupos">Grupo:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control" id="grupos" name="grupos">
+                            <option selected>selecione</option>
+                            <?php
+                            while($select = pg_fetch_assoc($resultSelectGrupos))
+                            {
+                                echo '<option value="'.$select['id_grupo'].'">'.$select['nome']."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <label class="col-xs-1 col-form-label" for="cidades">Estado:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control" id="cidades" name="cidades">
+                            <option selected>selecione</option>
+                            <?php
+                            while($estados = pg_fetch_assoc($resultEstados))
+                            {
+                                echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <label class="col-xs-1 col-form-label" for="cidades">Cidade:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control" id="cidades" name="cidades">
+                            <option selected>selecione</option>
+                            <?php
+                            while($cidades = pg_fetch_assoc($resultCidades))
+                            {
+                                echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleTextarea" class="col-xs-2 col-form-label">Observações: </label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="O conheço de algum lugar.." name="observacoes"></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-12" align="right">
+                    <button type="submit" class="btn btn-outline-primary">Incluir</button>
+                    <button type="reset" class="btn btn-outline-info">Limpar</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-md-2"></div>
 </section>
 
 <footer>

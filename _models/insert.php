@@ -8,7 +8,7 @@
  */
 class insert
 {
-    public static function insertgrupos($nome,$id) {
+    public static function grupos($nome,$id) {
         $insertGrupo = "insert into grupos (nome, id_usuario) values ('$nome','$id')";
         return $insertGrupo;
     }

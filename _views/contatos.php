@@ -1,6 +1,6 @@
 <?php require "../_controllers/start_sessao.php";
 
-
+/*
     //Obtem parametros pelo GET para saber qual cmd executar
     if (isset($_GET['action'])){
         $idContato = $_GET['id'];
@@ -34,7 +34,7 @@
     $sqlCidades='select * from cidades';
     $resultCidades = executaS($sqlCidades);
 
-
+*/
 ?>
 
 <!doctype html>
@@ -57,10 +57,6 @@
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
         <header>
             <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
                 <div class="nav navbar-nav">

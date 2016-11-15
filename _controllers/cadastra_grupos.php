@@ -6,21 +6,21 @@
  * Time: 17:06
  */
 
-require "../_controllers/start_sessao.php";
 require_once '../_models/select.php';
 require_once '../_models/insert.php';
 require_once '../_models/crud.php';
+require_once '../_models/delete.php';
 
 
 
 if(isset($_POST['grupos'])){
     $nome = $_POST['grupos'];
     if (empty($nome)){
-        echo "Dados informados estão incorretos";
+
         exit;
     }
     echo $nome.' '.$id;
-    crud::execquery(insert::insertgrupos($nome,$id));
+    crud::insert(insert::grupos($nome,$id));
     header('location:/app_agenda/_views/grupos.php');
 }
 
@@ -32,13 +32,13 @@ if(isset($_POST['nomegrupo'])){
         echo "Dados informados estão incorretos";
         exit;
     }
-    $sql = 'update grupos set nome = \''.$nome.'\' where id_grupo = '.$idg.' and id_usuario ='.$id;
+
     $resultado = executa($sql);
 }
 
 //Obtem parametros pelo GET para saber qual cmd executar
-if (isset($_GET['action'])){
-    $idGrupo = $_GET['id'];
-    $sqlDel = 'delete from grupos where id_grupo ='.$idGrupo;
-    $resultDel = executa($sqlDel);
-}
+    if (isset($_GET['action'])){
+        $id = $_GET['id'];
+        crud::deleta(delete::grupos($id));
+        header('location:/app_agenda/_views/grupos.php');
+    }

@@ -37,4 +37,3 @@ class pdoinit extends PDO
         }
     }
 }
-$pdo = new pdoinit();

@@ -8,7 +8,7 @@
 
 class crud
 {
-
+    //Esta não consegui fazer funcionar
     public static function select($arg){
         $pdo = new pdoinit();
         $result = $pdo->prepare($arg);
@@ -17,10 +17,15 @@ class crud
         return $resultado;
     }
 
-    public static function execquery($sql){
+    public static function insert($sql){
         $pdo = new pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();
         return $result;
+    }
+    public static function deleta($sql){
+        $pdo = new pdoinit();
+        $result = $pdo->prepare($sql);
+        $result->execute();
     }
 }
