@@ -6,8 +6,6 @@
  * Time: 17:29
  */
 ?>
-
-
 <!doctype html>
 <html class="no-js" lang="pt_BR">
 <head>
@@ -28,22 +26,21 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
-            <div class="nav navbar-nav">
-                <a class="navbar-brand" href="#"><img src="_views/img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
-                <ul class="nav navbar-nav">
-                </ul>
-                <form class="form-inline float-lg-right">
-                    <a href="_views/usuario.php" class="btn btn-primary btn-md" role="button" aria-pressed="true">Cadastrar</a>
-                </form>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
+        <div class="nav navbar-nav">
+            <a class="navbar-brand" href="#"><img src="_views/img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
+            <ul class="nav navbar-nav">
+            </ul>
+            <form class="form-inline float-lg-right">
+                <a href="_views/usuario.php" class="btn btn-primary btn-md" role="button" aria-pressed="true">Cadastrar</a>
+            </form>
+        </div>
+    </nav>
+</header>
 <br/>
 <section class="container">
     <div class="col-md-4"></div>
-
     <div class="col-md-4">
         <fieldset class="form-control">
             <form class="form-group" name="frmLogin" method="post" action="_controllers/login_usuario.php">
@@ -72,16 +69,5 @@
 <script>window.jQuery || document.write('<script src="_views/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="_views/js/plugins.js"></script>
 <script src="_views/js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-</script>
 </body>
 </html>
-

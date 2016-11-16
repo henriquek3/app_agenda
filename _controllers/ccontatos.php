@@ -8,14 +8,6 @@
 require "start_sessao.php";
 $id = $_SESSION['id_usuario'];
 
-if (file_exists("executa.php")){
-    include ("executa.php");
-}
-if (!file_exists("executa.php")){
-    echo "Arquivo executa.php não existe";
-    exit;
-}
-
 $nome = $_POST['nome'];
 $celular = $_POST['celular'];
 $email = $_POST['email'];

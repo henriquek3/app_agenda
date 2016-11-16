@@ -1,4 +1,4 @@
-<?php require_once '../_models/pdo.php'; require_once '../_models/select.php';
+<?php require_once '../_models/crud.php';  require_once '../_models/select.php';
 
 $pdo = new pdoinit();
 $pdoCidades = $pdo->prepare(select::cidades());

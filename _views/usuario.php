@@ -39,7 +39,7 @@
             <div class="col-lg-6">
                 <h2>Cadastro de Usuários</h2>
             <fieldset class="form-control">
-                <form class="form-group" name="frmUsuarios" method="post" action="../_controllers/cadastra_usuarios.php">
+                <form class="form-group" name="frmUsuarios" method="post" action="../_controllers/cusuarios.php">
                     <div class="form-group row">
                         <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                         <div class="col-xs-10">

@@ -1,13 +1,5 @@
 <?php require "../_controllers/start_sessao.php";
 
-if (file_exists("executa.php")){
-        include ("executa.php");
-    }
-    if (!file_exists("executa.php")){
-        echo "Arquivo executa.php não existe";
-        exit;
-    }
-
     $contato = $_POST['contato'];
 
 ?>
@@ -79,25 +71,7 @@ if (file_exists("executa.php")){
                     <tbody>
                     <?php
 
-                    $sqlG='select * from 
 
-                            (select 		ct.id_contato,
-                                        ct.nome,
-                                        ct.telefone,
-                                        ct.email,
-                                        gp.nome grupo,
-                                        cd.nome cidade,
-                                        ct.favorito,
-                                        ct.endereco,
-                                        ct.nascimento,
-                                        ct.observacoes
-                            from 		contatos	ct,
-                                        grupos		gp,
-                                        cidades		cd
-                            where       gp.id_grupo = ct.id_grupo
-                            and         cd.id_cidade = ct.id_cidade
-                            )    a where a.nome LIKE \'%'.$contato.'%\'
-                            and         ct.id_usuario ='.$id;
 
                     $resultadoG = executaS($sqlG);
 

@@ -1,4 +1,4 @@
-<?php include ('pdo.php');
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/';
 /**
  * Created by PhpStorm.
  * User: jean
@@ -13,7 +13,7 @@ class crud
         $pdo = new pdoinit();
         $result = $pdo->prepare($arg);
         $result->execute();
-        $resultado = $result->fetch(PDO::FETCH_ASSOC);
+        $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
         return $resultado;
     }
 
@@ -27,5 +27,12 @@ class crud
         $pdo = new pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();
+    }
+
+    public static function executa($sql){
+        $pdo = new pdoinit();
+        $result = $pdo->prepare($sql);
+        $result->execute();
+        return $result;
     }
 }

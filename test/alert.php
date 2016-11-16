@@ -16,7 +16,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="../_views/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,9 +27,9 @@
 </button>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="../_views/bs3/js/jquery.js"></script>
+<script src="bs3/js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../_views/bs3/js/bootstrap.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
 
 <script>
     $('#myAlert').on('close.bs.alert', function () {
