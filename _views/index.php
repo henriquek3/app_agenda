@@ -1,4 +1,12 @@
-<?php require "../_controllers/start_sessao.php";
+<?php require_once '../_models/pdo.php'; require_once '../_models/select.php';
+
+$pdo = new pdoinit();
+$pdoCidades = $pdo->prepare(select::cidades());
+$pdoCidades->execute();
+$pdoEstados = $pdo->prepare(select::estados());
+$pdoEstados->execute();
+$pdoGrupos = $pdo->prepare(select::grupos($id));
+$pdoGrupos->execute();
 
 /**
  * Created by PhpStorm.
@@ -61,7 +69,7 @@
     <div class="col-md-8">
         <h2>Cadastro de Contatos</h2>
         <fieldset class="form-control">
-            <form name="frmCadastro" method="post" action="cadastra_contatos.php">
+            <form name="frmCadastro" method="post" action="../_controllers/cadastra_contatos.php">
                 <div class="form-group row">
                     <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                     <div class="col-xs-5">
@@ -103,7 +111,7 @@
                         <select class="form-control" id="grupos" name="grupos">
                             <option selected>selecione</option>
                             <?php
-                            while($select = pg_fetch_assoc($resultSelectGrupos))
+                            while($select = $pdoGrupos->fetch())
                             {
                                 echo '<option value="'.$select['id_grupo'].'">'.$select['nome']."</option>";
                             }
@@ -115,7 +123,7 @@
                         <select class="form-control" id="cidades" name="cidades">
                             <option selected>selecione</option>
                             <?php
-                            while($estados = pg_fetch_assoc($resultEstados))
+                            while($estados = $pdoEstados->fetch())
                             {
                                 echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
                             }
@@ -127,7 +135,7 @@
                         <select class="form-control" id="cidades" name="cidades">
                             <option selected>selecione</option>
                             <?php
-                            while($cidades = pg_fetch_assoc($resultCidades))
+                            while($cidades = $pdoCidades->fetch())
                             {
                                 echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
                             }
@@ -165,6 +173,8 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+
+
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

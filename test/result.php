@@ -29,7 +29,7 @@ echo '<hr/>';
         echo '<td>'.' '.'</td>';
         echo '<td align="right"><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalGrupos" data-idgrupo="'.$arr['id_grupo'].'" data-whatever="'.$arr['nome'].'">Alterar</button>'.
             ' '.
-            '<a href="grupos.php?action=excluir&id='.$arr['id_grupo'].'"><button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
+            '<a href="cgrupos.php?action=excluir&id='.$arr['id_grupo'].'"><button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
         echo '</tr>';
     }
 

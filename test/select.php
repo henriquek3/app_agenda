@@ -7,6 +7,8 @@
  */
 
 include ('../_models/pdo.php');
+
+$pdo = new pdoinit();
 $sqlEstados = 'select * from estados';
 $resultEstados = $pdo->prepare($sqlEstados);
 $resultEstados->execute();
@@ -52,10 +54,10 @@ $resultEstados->execute();
         </div>
     </div>
 
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-        google.load("jquery", "1.4.2");
-    </script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.4.2");
+</script>
 <script type="text/javascript">
     $(function(){
         $('#id_categoria').change(function(){

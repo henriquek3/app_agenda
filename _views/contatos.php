@@ -8,24 +8,7 @@
         $resultDel = executa($sqlDel);
     }
 
-    $sqlContatos = 'select 		ct.id_contato,
-                                ct.nome,
-                                ct.telefone,
-                                ct.email,
-                                gp.nome grupo,
-                                gp.id_grupo idgrupo,
-                                cd.nome cidade,
-                                cd.id_cidade idcidade,
-                                ct.favorito,
-                                ct.endereco,
-                                ct.nascimento,
-                                ct.observacoes
-                    from 		contatos	ct,
-                                grupos		gp,
-                                cidades		cd
-                    where       gp.id_grupo = ct.id_grupo
-                    and         cd.id_cidade = ct.id_cidade
-                    AND         ct.id_usuario ='.$id;
+
     $resultContatos = executaS($sqlContatos);
 
     $sqlselectGrupos='select * from grupos where id_usuario ='.$id;
