@@ -63,7 +63,6 @@
 				}
 			});
 		});
-		</script>
-		
+		</script>		
 	</body>
 </html>
