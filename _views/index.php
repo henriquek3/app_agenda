@@ -69,7 +69,7 @@ $pdoGrupos->execute();
     <div class="col-md-8">
         <h2>Cadastro de Contatos</h2>
         <fieldset class="form-control">
-            <form name="frmCadastro" method="post" action="../_controllers/cadastra_contatos.php">
+            <form name="frmCadastro" method="post" action="../_controllers/c  contatos.php">
                 <div class="form-group row">
                     <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                     <div class="col-xs-5">
