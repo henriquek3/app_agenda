@@ -82,23 +82,30 @@ class select
     {
         $pesquisarcontatos ='select * from 
 
-                            (select 	ct.id_contato,
-                                        ct.nome,
-                                        ct.telefone,
-                                        ct.email,
-                                        gp.nome         grupo,
-                                        cd.nome         cidade,
-                                        ct.favorito,
-                                        ct.endereco,
-                                        ct.nascimento,
-                                        ct.observacoes
-                            from 		contatos	    ct,
-                                        grupos		    gp,
-                                        cidades		    cd
-                            where       gp.id_grupo =   ct.id_grupo
-                            and         cd.id_cidade =  ct.id_cidade
-                            )a where    a.nome LIKE \'%'.$contato.'%\'
-                            and         ct.id_usuario ='.$id;
+                            (select 		ct.id_contato,
+                                ct.nome,
+                                ct.telefone,
+                                ct.email,
+                                gp.nome      grupo,
+                                gp.id_grupo  idgrupo,
+                                cd.nome      cidade,
+                                es.nome      estado,
+                                cd.id_cidade idcidade,
+                                cd.id_estado idestado,
+                                ct.favorito,
+                                ct.endereco,
+                                ct.nascimento,
+                                ct.observacoes,
+                                rank() OVER (ORDER BY id_contato) indice
+                    from 		contatos	ct,
+                                grupos		gp,
+                                cidades		cd,
+                                estados     es
+                    where       gp.id_grupo = ct.id_grupo
+                    and         cd.id_cidade = ct.id_cidade
+                    AND         cd.id_estado = es.id_estado
+                            and         ct.id_usuario ='.$id.'
+                            )a where    a.nome LIKE \'%'.$contato.'%\'';
         return $pesquisarcontatos;
     }
 

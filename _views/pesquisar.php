@@ -1,7 +1,9 @@
-<?php require "../_controllers/start_sessao.php";
+<?php require "../_controllers/start_sessao.php"; require_once '../_models/crud.php';
 
-    $contato = $_POST['contato'];
 
+    if (!empty($_POST['contato'])){
+        $contato = $_POST['contato'];
+    }
 ?>
 
 <!doctype html>
@@ -55,27 +57,25 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr">
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>telefone</th>
-                        <th>email</th>
-                        <th>Grupo</th>
-                        <th>Cidade</th>
-                        <th>favorito</th>
-                        <th>endereco</th>
-                        <th>nascimento</th>
-                        <th>observacoes</th>
-                        <th> </th>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Grupo</th>
+                    <th>Cidade</th>
+                    <th>Favorito</th>
+                    <th>Endereco</th>
+                    <th>Nascimento</th>
+                    <th>Observacoes</th>
+                    <th> </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    $resultadoG = executaS($sqlG);
-
-                    while($sql = pg_fetch_assoc($resultadoG))
+                    <?php require_once 'contatos_modal.php'; /* Caso este modal fique no inicio ele ira dar load nas cidades antes de carregar o html da pagina. */
+                    foreach( crud::select(select::pesquisarcontatos($contato,$id)) as $sql )
                     {
                         echo '<tr>';
-                        echo '<th scope="row">'.$sql['id_contato'].'</th>';
+                        echo '<th scope="row">'.$sql['indice'].'</th>';
                         echo '<td>'.$sql['nome']."</td>";
                         echo "<td>".$sql['telefone']."</td>";
                         echo "<td>".$sql['email']."</td>";
@@ -85,8 +85,27 @@
                         echo "<td>".$sql['endereco']."</td>";
                         echo "<td>".$sql['nascimento']."</td>";
                         echo "<td>".$sql['observacoes']."</td>";
-                        echo "<td>"."<button type=\"button\" class=\"btn btn-outline-primary btn-sm\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-whatever=\"alterar\">Editar</button>".
-                            ' '.'<button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>'."</td>";
+                        echo '<td align="right">
+                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalContatos" data-nome="'.$sql['nome'].'" 
+                                    data-id_contato="'.$sql['id_contato'].'"
+                                    data-telefone="'.$sql['telefone'].'"
+                                    data-email="'.$sql['email'].'"
+                                    data-idgrupo="'.$sql['idgrupo'].'" 
+                                    data-cidade="'.$sql['cidade'].'"
+                                    data-estado="'.$sql['estado'].'" 
+                                    data-idcidade="'.$sql['idcidade'].'"
+                                    data-idestado="'.$sql['idestado'].'"
+                                    data-favorito="'.$sql['favorito'].'"
+                                    data-endereco="'.$sql['endereco'].'"
+                                    data-nascimento="'.$sql['nascimento'].'"
+                                    data-observacoes="'.$sql['observacoes'].'"
+                                    value=""
+                                > Alterar</button>'.
+                            ' '.
+                            '<a href="../_controllers/ccontatos.php?action=excluir&id='.$sql['id_contato'].'">
+                                    <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>
+                                <a/>'.
+                            '</td>';
                         echo '</tr>';
                     }
                     ?>

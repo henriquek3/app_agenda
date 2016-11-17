@@ -1,8 +1,8 @@
 <?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php';
 
-$pdo = new pdoinit();
-$result = $pdo->prepare(select::grupos($id));
-$result->execute();
+//$pdo = new pdoinit();
+//$result = $pdo->prepare(select::grupos($id));
+//$result->execute();
 
     $modal ="";
     if (isset($_GET['action'])){
@@ -87,7 +87,8 @@ $result->execute();
             </thead>
             <tbody>
                 <?php
-                    while ($gridGrupo = $result->fetch()){
+                    //while ($gridGrupo = $result->fetch()){
+                    foreach (crud::select(select::grupos($id)) as $gridGrupo ){
                         echo '<tr>';
                         echo '<th scope="row">'.$gridGrupo['indice'].'</th>';
                         echo '<td>'.$gridGrupo['nome'].'</td>';

@@ -1,4 +1,4 @@
-<?php session_start(); require '../_models/crud.php'; require '../_models/select.php';
+<?php session_start(); require '../_models/crud.php'; //require '../_models/select.php';
 /**
  * Created by PhpStorm.
  * User: Jean Freitas

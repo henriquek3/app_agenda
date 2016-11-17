@@ -1,4 +1,4 @@
-<?php session_start(); require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
 
 /**
  * Created by PhpStorm.
@@ -29,7 +29,7 @@
 
 <body>
 <header>
-    <nav class="navbar navbar-light bg-faded navbar-fixed-top" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
             <ul class="nav navbar-nav">
