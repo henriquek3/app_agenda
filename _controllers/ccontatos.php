@@ -1,12 +1,20 @@
-<?php
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
+
 /**
  * Created by PhpStorm.
  * User: Jean Freitas
  * Date: 29/10/2016
  * Time: 23:34
  */
-require "start_sessao.php";
-$id = $_SESSION['id_usuario'];
+
+    //Obtem parametros pelo GET para saber qual cmd executar
+    if (isset($_GET['action']))
+    {
+        $idContato = $_GET['id'];
+        crud::deleta(delete::contatos($idContato));
+        header("location:/app_agenda/_views/contatos.php");
+        exit;
+    }
 
 $nome = $_POST['nome'];
 $celular = $_POST['celular'];
@@ -18,12 +26,9 @@ $grupos = $_POST['grupos'];
 $cidade = $_POST['cidades'];
 $observacoes = $_POST['observacoes'];
 
-
-$sql = "insert into contatos (nome,telefone,email,endereco,nascimento,favorito,id_grupo,observacoes,id_usuario,id_cidade) 
-        values ('$nome','$celular','$email','$endereco','$nascimento','$favorito','$grupos','$observacoes','$id','$cidade')";
-
-$resultado = executa($sql);
+$resultado = crud::insert(insert::contatos($nome,$celular,$email,$endereco,$nascimento,$favorito,$grupos,$observacoes,$id,$cidade));
 
 if ($resultado) {
-    header("location:/agenda/contatos.php");
+    header("location:/app_agenda/_views/contatos.php");
+    exit;
 }

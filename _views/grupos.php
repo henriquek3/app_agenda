@@ -1,4 +1,4 @@
-<?php require_once '../_models/select.php'; require_once '../_models/pdo.php'; include_once '../_views/grupos_modal.php'; $id = $_SESSION['id_usuario'];
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php';
 
 $pdo = new pdoinit();
 $result = $pdo->prepare(select::grupos($id));
@@ -89,7 +89,7 @@ $result->execute();
                 <?php
                     while ($gridGrupo = $result->fetch()){
                         echo '<tr>';
-                        echo '<th scope="row">'.$gridGrupo['id_grupo'].'</th>';
+                        echo '<th scope="row">'.$gridGrupo['indice'].'</th>';
                         echo '<td>'.$gridGrupo['nome'].'</td>';
                         echo '<td>'.' '.'</td>';
                         echo '<td align="right"><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalGrupos" data-idgrupo="'.$gridGrupo['id_grupo'].'" data-whatever="'.$gridGrupo['nome'].'">Alterar</button>'.

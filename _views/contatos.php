@@ -1,14 +1,6 @@
-<?php require_once '../_models/crud.php';
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
 
-/*
-    //Obtem parametros pelo GET para saber qual cmd executar
-    if (isset($_GET['action'])){
-        $idContato = $_GET['id'];
-        $sqlDel = 'delete from contatos where id_contato ='.$idContato;
-        $resultDel = executa($sqlDel);
-    }
 
-*/
 ?>
 
 <!doctype html>
@@ -57,7 +49,7 @@
 
     <br/>
 
-<article class="container">
+<section class="container-fluid">
     <div class="row" style="font-size: 12px">
         <table class="table table-hover table-bordered">
             <thead>
@@ -76,11 +68,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    while($sql = pg_fetch_assoc($resultContatos))
+                <?php require_once 'contatos_modal.php'; /* Caso este modal fique no inicio ele ira dar load nas cidades antes de carregar o html da pagina. */
+                    foreach( crud::select(select::contatos($id)) as $sql )
                     {
                         echo '<tr>';
-                        echo '<th scope="row">'.$sql['id_contato'].'</th>';
+                        echo '<th scope="row">'.$sql['indice'].'</th>';
                         echo '<td>'.$sql['nome']."</td>";
                         echo "<td>".$sql['telefone']."</td>";
                         echo "<td>".$sql['email']."</td>";
@@ -96,8 +88,10 @@
                                     data-telefone="'.$sql['telefone'].'"
                                     data-email="'.$sql['email'].'"
                                     data-idgrupo="'.$sql['idgrupo'].'" 
-                                    data-cidade="'.$sql['cidade'].'" 
-                                    data-idcidade="'.$sql['idcidade'].'" 
+                                    data-cidade="'.$sql['cidade'].'"
+                                    data-estado="'.$sql['estado'].'" 
+                                    data-idcidade="'.$sql['idcidade'].'"
+                                    data-idestado="'.$sql['idestado'].'"
                                     data-favorito="'.$sql['favorito'].'"
                                     data-endereco="'.$sql['endereco'].'"
                                     data-nascimento="'.$sql['nascimento'].'"
@@ -105,7 +99,7 @@
                                     value=""
                                 > Alterar</button>'.
                                 ' '.
-                                '<a href="contatos.php?action=excluir&id='.$sql['id_contato'].'">
+                                '<a href="../_controllers/ccontatos.php?action=excluir&id='.$sql['id_contato'].'">
                                     <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>
                                 <a/>'.
                         '</td>';
@@ -115,106 +109,7 @@
             </tbody>
         </table>
     </div>
-
-    <!--[Modal}-->
-    <div class="bd-example">
-        <div class="modal fade" id="modalContatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-                    </div>
-
-                    <div class="modal-body">
-
-                        <form name="frmModal" method="post" action="update_contatos.php">
-
-                            <div class="form-group row">
-                                <div class="form-group">
-                                    <input class="sr-only" id="id_contato" name="id_contato">
-                                </div>
-                                <label for="nome" class="col-sm-2 col-form-label">Nome: </label>
-                                <div class="col-sm-4">
-                                    <input name="nome" class="form-control" type="text" id="nome">
-                                </div>
-                                <label for="celular" class="col-sm-2 col-form-label">Telefone: </label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="tel" id="celular" name="celular">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Email: </label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="email" id="email" name="email">
-                                </div>
-                                <label for="endereco" class="col-sm-2 col-form-label">Endereço: </label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="text" id="endereco" name="endereco">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="aniversario" class="col-sm-2 col-form-label">Aniversário: </label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="date" id="nascimento" name="nascimento">
-                                </div>
-                                <label class="col-sm-2">Favorito: </label>
-                                <div class="col-sm-4">
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" value="" type="checkbox"
-                                                   name="favorito" id="favorito">
-                                            <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true"> Ativo </a>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" for="grupos">Grupos:   </label>
-                                <div class="col-sm-4">
-                                    <select class="form-control" id="grupos" name="grupos">
-                                        <?php
-                                            while($select = pg_fetch_assoc($resultSelectGrupos))
-                                            {
-                                                echo '<option value="'.$select['id_grupo'].'">'.$select['nome']."</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <label class="col-sm-2 col-form-label" for="idcidade">Cidade:   </label>
-                                <div class="col-sm-4">
-                                    <select class="form-control" id="idcidade" name="idcidade">
-                                        <?php
-                                            while($cidades = pg_fetch_assoc($resultCidades))
-                                            {
-                                                echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="observacoes" class="col-sm-2 col-form-label">Observações: </label>
-                                <div class="col-sm-6">
-                                    <textarea class="form-control" id="observacoes" rows="2"
-                                              name="observacoes"></textarea>
-                                </div>
-                            </div>
-                            <!--[ Form Index End ]-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Gravar</button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</article>
+</section>
 
 <div>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -235,6 +130,7 @@
             var observacoes = button.data('observacoes')
             var idgrupo = button.data('idgrupo')
             var idcidade = button.data('idcidade')
+            var idestado = button.data('idestado')
             var selec = $("#opt").val();
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -249,6 +145,7 @@
             modal.find('#observacoes').val(observacoes)
             modal.find('#grupos').val(idgrupo)
             modal.find('#idcidade').val(idcidade)
+            modal.find('#idestado').val(idestado)
             //$("#grupos").val(selec);
         })
     </script>

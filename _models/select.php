@@ -9,7 +9,7 @@
 class select
 {
     public static function grupos($id){
-        $grupos = 'select * from grupos where id_usuario='.$id;
+        $grupos = 'SELECT id_grupo, id_usuario, nome, rank() OVER (ORDER BY id_grupo) indice FROM grupos WHERE id_usuario='.$id;
         return $grupos;
     }
 
@@ -28,21 +28,54 @@ class select
                                 ct.nome,
                                 ct.telefone,
                                 ct.email,
-                                gp.nome grupo,
-                                gp.id_grupo idgrupo,
-                                cd.nome cidade,
+                                gp.nome      grupo,
+                                gp.id_grupo  idgrupo,
+                                cd.nome      cidade,
+                                es.nome      estado,
                                 cd.id_cidade idcidade,
+                                cd.id_estado idestado,
                                 ct.favorito,
                                 ct.endereco,
                                 ct.nascimento,
-                                ct.observacoes
+                                ct.observacoes,
+                                rank() OVER (ORDER BY id_contato) indice
                     from 		contatos	ct,
                                 grupos		gp,
-                                cidades		cd
+                                cidades		cd,
+                                estados     es
                     where       gp.id_grupo = ct.id_grupo
                     and         cd.id_cidade = ct.id_cidade
+                    AND         cd.id_estado = es.id_estado
                     AND         ct.id_usuario ='.$id;
         return $contatos;
+    }
+
+    public static function favoritos($id){
+        $favoritos = 'select 		ct.id_contato,
+                                ct.nome,
+                                ct.telefone,
+                                ct.email,
+                                gp.nome      grupo,
+                                gp.id_grupo  idgrupo,
+                                cd.nome      cidade,
+                                es.nome      estado,
+                                cd.id_cidade idcidade,
+                                cd.id_estado idestado,
+                                ct.favorito,
+                                ct.endereco,
+                                ct.nascimento,
+                                ct.observacoes,
+                                rank() OVER (ORDER BY id_contato) indice
+                    from 		contatos	ct,
+                                grupos		gp,
+                                cidades		cd,
+                                estados     es
+                    where       gp.id_grupo = ct.id_grupo
+                    and         cd.id_cidade = ct.id_cidade
+                    AND         cd.id_estado = es.id_estado
+                    AND         ct.favorito = \'on\'
+                    AND         ct.id_usuario ='.$id;
+        return $favoritos;
     }
 
     public static function pesquisarcontatos($contato,$id)

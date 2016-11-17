@@ -43,7 +43,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <fieldset class="form-control">
-            <form class="form-group" name="frmLogin" method="post" action="_controllers/login_usuario.php">
+            <form class="form-group" name="frmLogin" method="post" action="./_controllers/login_usuario.php">
                 <div class="form-group">
                     <label for="login" class="col-form-label">Usuário: </label>
                     <div class="form-group">

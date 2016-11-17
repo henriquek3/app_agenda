@@ -1,4 +1,4 @@
-<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/';
+<?php require_once 'pdo.php'; require_once 'delete.php'; require_once 'insert.php'; require_once 'select.php'; require_once 'update.php';
 /**
  * Created by PhpStorm.
  * User: jean
@@ -8,7 +8,6 @@
 
 class crud
 {
-    //Esta não consegui fazer funcionar
     public static function select($arg){
         $pdo = new pdoinit();
         $result = $pdo->prepare($arg);
@@ -29,7 +28,7 @@ class crud
         $result->execute();
     }
 
-    public static function executa($sql){
+    public static function update($sql){
         $pdo = new pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();

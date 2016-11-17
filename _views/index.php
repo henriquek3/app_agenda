@@ -1,12 +1,4 @@
-<?php require_once '../_models/crud.php';  require_once '../_models/select.php';
-
-$pdo = new pdoinit();
-$pdoCidades = $pdo->prepare(select::cidades());
-$pdoCidades->execute();
-$pdoEstados = $pdo->prepare(select::estados());
-$pdoEstados->execute();
-$pdoGrupos = $pdo->prepare(select::grupos($id));
-$pdoGrupos->execute();
+<?php session_start(); require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
 
 /**
  * Created by PhpStorm.
@@ -63,13 +55,12 @@ $pdoGrupos->execute();
 </header>
 <br/>
 <br/>
-<br/>
 <section class="container">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h2>Cadastro de Contatos</h2>
         <fieldset class="form-control">
-            <form name="frmCadastro" method="post" action="../_controllers/c  contatos.php">
+            <form name="frmCadastro" method="post" action="../_controllers/ccontatos.php">
                 <div class="form-group row">
                     <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                     <div class="col-xs-5">
@@ -111,10 +102,10 @@ $pdoGrupos->execute();
                         <select class="form-control" id="grupos" name="grupos">
                             <option selected>selecione</option>
                             <?php
-                            while($select = $pdoGrupos->fetch())
-                            {
-                                echo '<option value="'.$select['id_grupo'].'">'.$select['nome']."</option>";
-                            }
+                                foreach (crud::select(select::grupos($id)) as $grupos)
+                                {
+                                    echo '<option value="'.$grupos['id_grupo'].'">'.$grupos['nome']."</option>";
+                                }
                             ?>
                         </select>
                     </div>
@@ -123,10 +114,10 @@ $pdoGrupos->execute();
                         <select class="form-control" id="cidades" name="cidades">
                             <option selected>selecione</option>
                             <?php
-                            while($estados = $pdoEstados->fetch())
-                            {
-                                echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
-                            }
+                                foreach (crud::select(select::estados()) as $estados)
+                                {
+                                    echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
+                                }
                             ?>
                         </select>
                     </div>
@@ -135,10 +126,10 @@ $pdoGrupos->execute();
                         <select class="form-control" id="cidades" name="cidades">
                             <option selected>selecione</option>
                             <?php
-                            while($cidades = $pdoCidades->fetch())
-                            {
-                                echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
-                            }
+                                foreach (crud::select(select::cidades()) as $cidades)
+                                {
+                                    echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
+                                }
                             ?>
                         </select>
                     </div>
@@ -164,7 +155,7 @@ $pdoGrupos->execute();
         <br/>
         <hr/>
         <?php
-        echo "Usuário:<em> ". $_SESSION['login']."</em>";
+        echo '<span class="blockquote-footer">'."Usuário:<em> ". $_SESSION['login']."</em>".'</span>';
         ?>
     </div>
 </footer>
@@ -174,7 +165,7 @@ $pdoGrupos->execute();
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
-
+;
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

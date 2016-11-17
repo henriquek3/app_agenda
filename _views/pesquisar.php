@@ -70,9 +70,6 @@
                     </thead>
                     <tbody>
                     <?php
-
-
-
                     $resultadoG = executaS($sqlG);
 
                     while($sql = pg_fetch_assoc($resultadoG))
@@ -96,44 +93,7 @@
                     </tbody>
                 </table>
             </div>
-            <!--[Modal}-->
-            <div class="bd-example">
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="exampleModalLabel">Grupos</h4>
-                            </div>
-                            <div class="modal-body">
 
-                                <form name="frmGrupos" method="post" action="grupos.php">
-                                    <div class="form-group row">
-                                        <label for="grupos" class="col-xs-2 col-form-label">Nome: </label>
-                                        <div class="col-xs-4">
-                                            <input class="form-control" type="text" value="<?php
-                                            $sqlGr='select * from grupos order by id_grupo desc limit 1';
-                                            $resultadoG = executaS($sqlGr);
-                                            while($sql = pg_fetch_assoc($resultadoG))
-                                            {
-                                                echo $sql['nome'];
-                                            }
-                                            ?>" id="grupos" name="grupos">
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-outline-primary">Gravar</button>
-                                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </article>
         <div>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
