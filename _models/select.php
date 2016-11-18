@@ -18,6 +18,12 @@ class select
         return $cidades;
     }
 
+    public static function cidadesIdEstado($id_estado)
+    {
+        $cidades = "SELECT * FROM cidades WHERE id_estado=$id_estado";
+        return $cidades;
+    }
+
     public static function estados(){
         $estados ='select * from estados';
         return $estados;

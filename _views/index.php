@@ -17,13 +17,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" href="img/favicon">
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+        .carregando{
+            color:#ff0000;
+            display:none;
+        }
+    </style>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
@@ -61,6 +66,7 @@
         <h2>Cadastro de Contatos</h2>
         <fieldset class="form-control">
             <form name="frmCadastro" method="post" action="../_controllers/ccontatos.php">
+                <input type="hidden" name="form_name" value="frmCadastro"/>
                 <div class="form-group row">
                     <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                     <div class="col-xs-5">
@@ -109,28 +115,29 @@
                             ?>
                         </select>
                     </div>
-                    <label class="col-xs-1 col-form-label" for="cidades">Estado:</label>
+                    <label class="col-xs-1 col-form-label" for="estados">Estado:</label>
                     <div class="col-xs-3">
-                        <select class="form-control" id="cidades" name="cidades">
+                        <select class="form-control" id="estados" name="estados">
                             <option selected>selecione</option>
                             <?php
                                 foreach (crud::select(select::estados()) as $estados)
                                 {
-                                    echo '<option value="'.$estados['id_cidade'].'">'.$estados['nome']."</option>";
+                                    echo '<option value="'.$estados['id_estado'].'">'.$estados['nome']."</option>";
                                 }
                             ?>
                         </select>
                     </div>
                     <label class="col-xs-1 col-form-label" for="cidades">Cidade:</label>
                     <div class="col-xs-3">
+                        <span class="carregando">Aguarde, carregando...</span>
                         <select class="form-control" id="cidades" name="cidades">
-                            <option selected>selecione</option>
-                            <?php
-                                foreach (crud::select(select::cidades()) as $cidades)
+                            <option value="">selecione</option>
+                            <!--?php Desativa na implementação do JSON
+                               /* foreach (crud::select(select::cidades()) as $cidades)
                                 {
                                     echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
-                                }
-                            ?>
+                                } */
+                            ?> -->
                         </select>
                     </div>
                 </div>
@@ -165,17 +172,33 @@
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
-;
 
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.4.2");
 </script>
+
+<script type="text/javascript">
+    $(function(){
+        $('#estados').change(function(){
+            if( $(this).val() ) {
+                $('#cidades').hide();
+                $('.carregando').show();
+                $.getJSON('../_controllers/ccontatos.php?search=',{id_estado: $(this).val(), ajax: 'true'}, function(j){
+                    var options = '<option value="">- Escolha -</option>';
+                    for (var i = 0; i < j.length; i++) {
+                        options += '<option value="' + j[i].id + '">' + j[i].nome + '</option>';
+                    }
+                    $('#cidades').html(options).show();
+                    $('.carregando').hide();
+                });
+            } else {
+                $('#cidades').html('<option value="">– Escolha –</option>');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
