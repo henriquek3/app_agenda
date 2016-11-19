@@ -23,6 +23,20 @@
     <link rel="stylesheet" href="_views/css/main.css">
     <link rel="stylesheet" href="_views/css/bootstrap.min.css">
     <script src="_views/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style type="text/css">
+        .bg_video{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            background: url(_views/img/earth.gif) no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,6 +52,9 @@
         </div>
     </nav>
 </header>
+<video autoplay loop poster="_views/img/earth.gif" class="bg_video">
+    <source src="_views/img/earth.gif" type="video/mp4">
+</video>
 <br/>
 <section class="container">
     <div class="col-md-4"></div>
