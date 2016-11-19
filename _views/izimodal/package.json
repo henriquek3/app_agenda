@@ -1,0 +1,86 @@
+{
+  "_args": [
+    [
+      "izimodal",
+      "/var/www/html/app_agenda/_views/css"
+    ]
+  ],
+  "_from": "izimodal@latest",
+  "_id": "izimodal@1.4.1-d",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/izimodal",
+  "_nodeVersion": "6.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/izimodal-1.4.1-d.tgz_1474558022656_0.22145976126194"
+  },
+  "_npmUser": {
+    "email": "dolcemarcelo@gmail.com",
+    "name": "dolce"
+  },
+  "_npmVersion": "3.8.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "izimodal",
+    "raw": "izimodal",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/izimodal/-/izimodal-1.4.1-d.tgz",
+  "_shasum": "d20ed331952bd413703c05293c6b45f3a4e248ad",
+  "_shrinkwrap": null,
+  "_spec": "izimodal",
+  "_where": "/var/www/html/app_agenda/_views/css",
+  "author": {
+    "email": "dolcemarcelo@gmail.com",
+    "name": "Marcelo Dolce"
+  },
+  "bugs": {
+    "url": "https://github.com/dolce/iziModal/issues"
+  },
+  "dependencies": {
+    "jquery": "~2"
+  },
+  "description": "Elegant, responsive, flexible and lightweight modal plugin with jQuery.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "d20ed331952bd413703c05293c6b45f3a4e248ad",
+    "tarball": "https://registry.npmjs.org/izimodal/-/izimodal-1.4.1-d.tgz"
+  },
+  "gitHead": "f83bb51fb32a09019c256a16c3491efc8c3e0cc0",
+  "homepage": "https://github.com/dolce/iziModal#readme",
+  "keywords": [
+    "alert",
+    "iframe",
+    "izimodal",
+    "jQuery",
+    "javascript",
+    "js",
+    "lightbox",
+    "modal"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "dolce",
+      "email": "dolcemarcelo@gmail.com"
+    }
+  ],
+  "name": "izimodal",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolce/iziModal.git"
+  },
+  "scripts": {},
+  "version": "1.4.1-d"
+}

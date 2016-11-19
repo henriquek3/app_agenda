@@ -14,11 +14,9 @@
     <title>Agenda</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" href="_views/img/favicon">
     <!-- Place favicon.ico in the root directory -->
-
     <link rel="stylesheet" href="_views/css/normalize.css">
     <link rel="stylesheet" href="_views/css/main.css">
     <link rel="stylesheet" href="_views/css/bootstrap.min.css">
@@ -38,7 +36,6 @@
         }
     </style>
 </head>
-
 <body>
 <header>
     <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
@@ -81,7 +78,6 @@
     </div>
     <div class="col-md-4"></div>
 </section>
-
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="_views/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="_views/js/plugins.js"></script>
