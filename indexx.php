@@ -44,12 +44,12 @@
     <button data-iziModal-close class="icon-close">x</button>
     <header>
         <a href="" class="active" id="signin">Entrar</a>
-        <a href="">Cadastrar</a>
+        <a href="" >Cadastrar</a>
     </header>
     <section>
         <form name="frmLogin" method="post" action="_controllers/login_usuario.php">
-            <input type="text" placeholder="Username" name="login" required="required"><!--[ Adicionado os campos required ]-->
-            <input type="password" placeholder="Password" name="senha" required="required">
+            <input type="text" placeholder="Username" id="login" name="login" required="required"><!--[ Adicionado os campos required ]-->
+            <input type="password" placeholder="Password" id="senha" name="senha" required="required">
             <footer>
                 <button data-iziModal-close>Cancel</button>
                 <button type="submit" class="submit">Log in</button>
@@ -57,7 +57,7 @@
         </form>
     </section>
     <section class="hide">
-        <form class="form-group" name="frmUsuarios" method="post" action="_controllers/cusuarios.php">
+        <form class="form-group" name="frmUsuarios" method="post" action="_controllers/cusuarios.php">>
             <input type="text" placeholder="Nome" id="nome" name="nome" required="required">
             <input type="text" placeholder="Username" id="login" name="login" required="required">
             <input type="password" placeholder="Password" id="senha" name="senha" required="required">

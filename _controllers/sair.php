@@ -9,4 +9,4 @@
 session_start();
 session_destroy();
 
-header("location:/app_agenda/login.php");
+header("location:/app_agenda/index.html");

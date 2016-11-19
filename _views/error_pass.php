@@ -47,7 +47,7 @@
             <hr class="my-2">
             <p>Por favor tente novamente ou solicite ao administrador uma nova senha.</p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="../login.php" role="button">Tentar Novamente</a>
+                <a class="btn btn-primary btn-lg" href="../index.html" role="button">Tentar Novamente</a>
             </p>
         </div>
     </div>

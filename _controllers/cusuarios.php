@@ -21,13 +21,11 @@ $test = $nome.$login.$password;
         exit;
     }
 
-$sql = "insert into usuarios (nome,login,password) values ('$nome','$login','$password')";
-
-$resultado = crud::execquery($sql);
+$resultado = crud::insert(insert::usuarios($nome,$login,$password));
 
     if ($resultado) {
         echo "Dados inseridos com sucesso!";
-        header("location:/app_agenda/_views/contatos.php");
+        header("location:/app_agenda/_controllers/sair.php");
         exit;
     }
     else{

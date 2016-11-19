@@ -19,4 +19,10 @@ class insert
                                    values ('$nome','$celular','$email','$endereco','$nascimento','$favorito','$grupos','$observacoes','$id','$cidade')";
         return $contatos;
     }
+
+    public static function usuarios($nome,$login,$password)
+    {
+        $usuarios = "insert into usuarios (nome,login,password) values ('$nome','$login','$password')";
+        return $usuarios;
+    }
 }

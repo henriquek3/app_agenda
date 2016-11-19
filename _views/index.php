@@ -70,27 +70,27 @@
                 <div class="form-group row">
                     <label for="nome" class="col-xs-2 col-form-label">Nome: </label>
                     <div class="col-xs-5">
-                        <input class="form-control" type="text" placeholder="Nome" id="nome" name="nome">
+                        <input class="form-control" type="text" placeholder="Nome" id="nome" name="nome" required="required">
                     </div>
                     <label for="celular" class="col-xs-1 col-form-label">Fone: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" type="tel" placeholder="Celular" id="celular" name="celular">
+                        <input class="form-control" type="tel" placeholder="Celular" id="celular" name="celular" required="required">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="endereco" class="col-xs-2 col-form-label">Endereço: </label>
                     <div class="col-xs-5">
-                        <input class="form-control" type="text" placeholder="Endereço" id="endereco" name="endereco">
+                        <input class="form-control" type="text" placeholder="Endereço" id="endereco" name="endereco" required="required">
                     </div>
                     <label for="email" class="col-xs-1 col-form-label">Email: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" type="email" placeholder="seu@email.com" id="email" name="email">
+                        <input class="form-control" type="email" placeholder="seu@email.com" id="email" name="email" required="required">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="aniversario" class="col-xs-2 col-form-label">Aniversário: </label>
                     <div class="col-xs-5">
-                        <input class="form-control" type="date"  id="aniversario" name="nascimento">
+                        <input class="form-control" type="date"  id="aniversario" name="nascimento" required="required">
                     </div>
                     <label class="col-sm-2 col-form-label">Favorito: </label>
                     <div class="col-xs-1">
@@ -105,7 +105,7 @@
                 <div class="form-group row">
                     <label class="col-xs-1 col-form-label" for="grupos">Grupo:</label>
                     <div class="col-xs-3">
-                        <select class="form-control" id="grupos" name="grupos">
+                        <select class="form-control" id="grupos" name="grupos" required="required">
                             <option selected>selecione</option>
                             <?php
                                 foreach (crud::select(select::grupos($id)) as $grupos)
@@ -117,7 +117,7 @@
                     </div>
                     <label class="col-xs-1 col-form-label" for="estados">Estado:</label>
                     <div class="col-xs-3">
-                        <select class="form-control" id="estados" name="estados">
+                        <select class="form-control" id="estados" name="estados" required="required">
                             <option selected>selecione</option>
                             <?php
                                 foreach (crud::select(select::estados()) as $estados)
@@ -130,7 +130,7 @@
                     <label class="col-xs-1 col-form-label" for="cidades">Cidade:</label>
                     <div class="col-xs-3">
                         <span class="carregando">Aguarde, carregando...</span>
-                        <select class="form-control" id="cidades" name="cidades">
+                        <select class="form-control" id="cidades" name="cidades" required="required">
                             <option value="">selecione</option>
                             <!--?php Desativa na implementação do JSON
                                /* foreach (crud::select(select::cidades()) as $cidades)

@@ -9,6 +9,6 @@ $id = $_SESSION['id_usuario'];
  */
 
 if (!isset($_SESSION['id_usuario']) || !isset($_SESSION['login'])){
-    header("location:/app_agenda/login.php");
+    header("location:/app_agenda/index.html");
     exit;
 }

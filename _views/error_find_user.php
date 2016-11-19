@@ -47,8 +47,8 @@
             <hr class="my-2">
             <p>Verifique o login utilizado. Caso ainda não tenha, clique no botão abaixo e cadastre-se.</p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="../login.php" role="button">Tentar Novamente</a>
-                <a class="btn btn-primary btn-lg" href="../login.php" role="button">Quero me Cadastrar</a>
+                <a class="btn btn-primary btn-lg" href="../index.html" role="button">Tentar Novamente</a>
+                <a class="btn btn-primary btn-lg" href="../index.html" role="button">Quero me Cadastrar</a>
             </p>
         </div>
     </div>
