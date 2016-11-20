@@ -48,23 +48,23 @@
     </header>
     <section>
         <form name="frmLogin" method="post" action="_controllers/login_usuario.php">
-            <input type="text" placeholder="Username" name="login" required="required"><!--[ Adicionado os campos required ]-->
-            <input type="password" placeholder="Password" name="senha" required="required">
+            <input type="text" placeholder="Username" name="login" required><!--[ Adicionado os campos required ]-->
+            <input type="password" placeholder="Password" name="senha" required>
             <footer>
-                <button data-iziModal-close>Cancel</button>
-                <button type="submit" class="submit">Log in</button>
+                <button data-iziModal-close>Sair</button>
+                <button type="submit" class="submit">Conectar</button>
             </footer>
         </form>
     </section>
     <section class="hide">
         <form class="form-group" name="frmUsuarios" method="post" action="_controllers/cusuarios.php">
-            <input type="text" placeholder="Nome" id="nome" name="nome" required="required">
-            <input type="text" placeholder="Username" id="login" name="login" required="required">
-            <input type="password" placeholder="Password" id="senha" name="senha" required="required">
-            <label for="check"><input type="checkbox" name="checkbox" id="check" value="1" required="required"> Eu Aceito os <a href="https://github.com/henriquek3/app_agenda" target="_parent">Termos</a>.</label>
+            <input type="text" placeholder="Nome" id="nome" name="nome" required>
+            <input type="text" placeholder="Username" id="login" name="login" required>
+            <input type="password" placeholder="Password" id="senha" name="senha" required>
+            <label for="check"><input type="checkbox" name="checkbox" id="check" value="1" required> Eu Aceito os <a href="https://github.com/henriquek3/app_agenda" target="_parent">Termos</a>.</label>
             <footer>
-                <button data-iziModal-close>Cancel</button>
-                <button class="submit">Create Account</button>
+                <button data-iziModal-close>Sair</button>
+                <button>Cadastrar</button>
             </footer>
         </form>
     </section>

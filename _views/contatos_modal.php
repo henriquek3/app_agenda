@@ -23,42 +23,40 @@
                 </div>
 
                 <div class="modal-body">
-
-                    <form name="frmModal" method="post" action="update_contatos.php">
-
+                    <form name="frmModal" method="post" action="../_controllers/update_contatos.php">
                         <div class="form-group row">
                             <div class="form-group">
                                 <input class="sr-only" id="id_contato" name="id_contato">
                             </div>
                             <label for="nome" class="col-sm-2 col-form-label">Nome: </label>
                             <div class="col-sm-4">
-                                <input name="nome" class="form-control" type="text" id="nome">
+                                <input name="nome" class="form-control" type="text" id="nome" title="Preencha o nome do contato" required>
                             </div>
                             <label for="celular" class="col-sm-2 col-form-label">Telefone: </label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="tel" id="celular" name="celular">
+                                <input class="form-control" type="tel" id="celular" name="celular" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email: </label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="email" id="email" name="email">
+                                <input class="form-control" type="email" id="email" name="email" required>
                             </div>
                             <label for="endereco" class="col-sm-2 col-form-label">Endereço: </label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text" id="endereco" name="endereco">
+                                <input class="form-control" type="text" id="endereco" name="endereco" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="aniversario" class="col-sm-2 col-form-label">Aniversário: </label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="date" id="nascimento" name="nascimento">
+                                <input class="form-control" type="date" id="nascimento" name="nascimento" required>
                             </div>
                             <label class="col-sm-2">Favorito: </label>
                             <div class="col-sm-4">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" value="" type="checkbox"
+                                        <input class="form-check-input" type="checkbox"
                                                name="favorito" id="favorito">
                                         <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-disabled="true"> Ativo </a>
                                     </label>
@@ -68,7 +66,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label" for="grupos">Grupos:   </label>
                             <div class="col-sm-4">
-                                <select class="form-control" id="grupos" name="grupos">
+                                <select class="form-control" id="grupos" name="grupos" required>
                                     <?php
                                         foreach (crud::select(select::grupos($id)) as $grupo)
                                         {
@@ -79,7 +77,7 @@
                             </div>
                             <label class="col-sm-2 col-form-label" for="idestado">Estado:   </label>
                             <div class="col-sm-4">
-                                <select class="form-control" id="idestado" name="idestado">
+                                <select class="form-control" id="idestado" name="idestado" required>
                                     <?php
                                         foreach (crud::select(select::estados()) as $estados)
                                         {
@@ -96,7 +94,7 @@
                             </div>
                             <label class="col-sm-2 col-form-label" for="idcidade">Cidade:</label>
                             <div class="col-sm-4">
-                                <select class="form-control" id="idcidade" name="idcidade">
+                                <select class="form-control" id="idcidade" name="idcidade" required>
                                     <?php
                                         foreach (crud::select(select::cidades()) as $cidades)
                                         {
@@ -112,12 +110,10 @@
                             <button type="submit" class="btn btn-primary">Gravar</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

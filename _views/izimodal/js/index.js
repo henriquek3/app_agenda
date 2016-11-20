@@ -31,8 +31,8 @@ $("#modal-custom").on('click', 'header a', function(event) {
         $("#modal-custom .iziModal-content .icon-close").attr('style', '');
     }
 });
-/*
-$("#modal-custom").on('click', '.submit', function(event) {
+
+$("#modal-custom").on('click', 'text', function(event) {
     event.preventDefault();
 
     var fx = "wobble",  //wobble shake
@@ -44,4 +44,4 @@ $("#modal-custom").on('click', '.submit', function(event) {
             $modal.removeClass(fx);
         }, 1500);
     }
-}); */
+});

@@ -23,7 +23,7 @@ if (!empty($_POST['login'])){
                 echo 'Usuário conectado com sucesso';
                 $_SESSION['id_usuario'] = $id;
                 $_SESSION['login'] = $login;
-                header("location:/app_agenda/_views/index.html");
+                header("location:/app_agenda/_views/index.php");
                 exit;
             } else {
                 header('location:/app_agenda/_views/error_pass.php');

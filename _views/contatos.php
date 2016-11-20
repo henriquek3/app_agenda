@@ -1,6 +1,4 @@
 <?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
-
-
 ?>
 
 <!doctype html>
@@ -19,11 +17,11 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
-<header>
+<!--<header>
     <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
@@ -45,7 +43,7 @@
             </form>
         </div>
     </nav>
-</header>
+</header> -->
 
     <br/>
 
@@ -59,11 +57,11 @@
                     <th>Telefone</th>
                     <th>E-mail</th>
                     <th>Grupo</th>
-                    <th>Cidade</th>
-                    <th>Favorito</th>
+                <!--<th>Cidade</th>-->
+                <!--<th>Favorito</th>-->
                     <th>Endereco</th>
                     <th>Nascimento</th>
-                    <th>Observacoes</th>
+                <!--<th>Observacoes</th>-->
                     <th> </th>
                 </tr>
             </thead>
@@ -77,11 +75,11 @@
                         echo "<td>".$sql['telefone']."</td>";
                         echo "<td>".$sql['email']."</td>";
                         echo "<td>".$sql['grupo']."</td>";
-                        echo "<td>".$sql['cidade']."</td>";
-                        echo "<td>".$sql['favorito']."</td>";
+                        //echo "<td>".$sql['cidade']."</td>";
+                        /*echo "<td>".$sql['favorito']."</td>";*/ $checked = $sql['favorito'];
                         echo "<td>".$sql['endereco']."</td>";
                         echo "<td>".$sql['nascimento']."</td>";
-                        echo "<td>".$sql['observacoes']."</td>";
+                        //echo "<td>".$sql['observacoes']."</td>";
                         echo '<td align="right">
                                 <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalContatos" data-nome="'.$sql['nome'].'" 
                                     data-id_contato="'.$sql['id_contato'].'"
@@ -97,7 +95,7 @@
                                     data-nascimento="'.$sql['nascimento'].'"
                                     data-observacoes="'.$sql['observacoes'].'"
                                     value=""
-                                > Alterar</button>'.
+                                >Exibir</button>'.
                                 ' '.
                                 '<a href="../_controllers/ccontatos.php?action=excluir&id='.$sql['id_contato'].'">
                                     <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>
