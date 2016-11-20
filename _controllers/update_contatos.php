@@ -21,12 +21,12 @@
 
     if ($resultado) {
         echo "Dados inseridos com sucesso!";
-        header("location:/app_agenda/_views/contatos.php");
+        header("location:/app_agenda/_views/contatos_iframe.php");
         exit;
     }
     else{
         echo 'Houve um erro ao cadastrar o usuário ';
         echo "erro :O";
-        //header("location:/agenda/contatos.php");
+        //header("location:/agenda/contatos_iframe.php");
         exit;
     }

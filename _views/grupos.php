@@ -1,16 +1,11 @@
 <?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php';
 
-//$pdo = new pdoinit();
-//$result = $pdo->prepare(select::grupos($id));
-//$result->execute();
-
     $modal ="";
     if (isset($_GET['action'])){
         $modal = 'error';
     }
 
 ?>
-
 <!doctype html>
 <html class="no-js" lang="pt_BR">
 <head>
@@ -19,11 +14,8 @@
     <title>Grupos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" href="img/favicon">
     <!-- Place favicon.ico in the root directory -->
-
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -32,7 +24,7 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top" style="background-color: lightsteelblue">
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
             <ul class="nav navbar-nav">
@@ -55,9 +47,28 @@
     </nav>
 </header>
 
-<br/>
+<br/><br/><br/>
+<div class="col-xs-6">
+    <h2>Cadastro de Grupos</h2>
+    <fieldset class="form-control">
+        <form name="frmGrupos" method="post" action="../_controllers/cgrupos.php">
+            <div class="form-group row">
+                <label for="grupos" class="col-xs-2 col-form-label">Nome: </label>
+                <div class="col-xs-10">
+                    <input class="form-control" type="text" placeholder="Grupos"
+                           id="grupos" name="grupos">
+                </div>
+            </div>
+            <div class="col-xs-12" align="right">
+                <button type="submit" class="btn btn-outline-primary">Incluir</button>
+                <button type="reset" class="btn btn-outline-info">Limpar</button>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
 <section class="container">
-    <div class="col-lg-6">
+    <!--<div class="col-lg-6">
         <h2>Cadastro de Grupos</h2>
         <fieldset class="form-control">
             <form name="frmGrupos" method="post" action="../_controllers/cgrupos.php">
@@ -74,7 +85,8 @@
                 </div>
             </form>
         </fieldset>
-    </div>
+    </div> -->
+    <div class="col-xs-6"></div>
     <div class="col-xs-6">
         <table class="table table-hover">
             <thead>
@@ -103,9 +115,6 @@
         </table>
     </div>
 </section>
-
-
-
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>

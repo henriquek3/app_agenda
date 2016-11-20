@@ -32,7 +32,7 @@
                     <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="contatos.php">Contatos</a>
+                            <a class="nav-link" href="contatos_iframe.php">Contatos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="favoritos.php">Favoritos</a>
