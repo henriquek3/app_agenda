@@ -19,37 +19,12 @@
 </head>
 
 <body>
-<!--<header>
-    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
-        <div class="nav navbar-nav">
-            <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
-            <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="contatos.php">Contatos <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="favoritos.php">Favoritos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="grupos.php">Grupos</a>
-                </li>
-            </ul>
-            <form class="form-inline float-lg-right" method="post" name="frmPesquisar" action="pesquisar.php">
-                <input class="form-control" type="text" placeholder="Pesquisar" name="contato">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-                <a href="../_controllers/sair.php"><button type="button" class="btn btn-outline-info">Sair</button></a>
-            </form>
-        </div>
-    </nav>
-</header> -->
-
-    <br/>
-
+<br/>
 <section class="container-fluid">
     <div class="row" style="font-size: 12px">
         <table class="table table-hover table-bordered">
             <thead>
-                <tr">
+            <tr>
                     <th>#</th>
                     <th>Nome</th>
                     <th>Telefone</th>
@@ -78,27 +53,32 @@
                         echo "<td>".$sql['endereco']."</td>";
                         echo "<td>".$sql['nascimento']."</td>";
                         //echo "<td>".$sql['observacoes']."</td>";
-                        echo '<td align="right">
-                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalContatos" data-nome="'.$sql['nome'].'" 
-                                    data-id_contato="'.$sql['id_contato'].'"
-                                    data-telefone="'.$sql['telefone'].'"
-                                    data-email="'.$sql['email'].'"
-                                    data-idgrupo="'.$sql['idgrupo'].'" 
-                                    data-cidade="'.$sql['cidade'].'"
-                                    data-estado="'.$sql['estado'].'" 
-                                    data-idcidade="'.$sql['idcidade'].'"
-                                    data-idestado="'.$sql['idestado'].'"
-                                    data-favorito="'.$sql['favorito'].'"
-                                    data-endereco="'.$sql['endereco'].'"
-                                    data-nascimento="'.$sql['nascimento'].'"
-                                    data-observacoes="'.$sql['observacoes'].'"
-                                    value=""
-                                >Exibir</button>'.
-                                ' '.
-                                '<a href="../_controllers/ccontatos.php?action=excluir&id='.$sql['id_contato'].'">
-                                    <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>
-                                <a/>'.
-                        '</td>';
+                echo '
+                <td align="right">
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#modalContatos" data-nome="'.$sql['nome'].'"
+                            data-id_contato="'.$sql['id_contato'].'"
+                            data-telefone="'.$sql['telefone'].'"
+                            data-email="'.$sql['email'].'"
+                            data-idgrupo="'.$sql['idgrupo'].'"
+                            data-cidade="'.$sql['cidade'].'"
+                            data-estado="'.$sql['estado'].'"
+                            data-idcidade="'.$sql['idcidade'].'"
+                            data-idestado="'.$sql['idestado'].'"
+                            data-favorito="'.$sql['favorito'].'"
+                            data-endereco="'.$sql['endereco'].'"
+                            data-nascimento="'.$sql['nascimento'].'"
+                            data-observacoes="'.$sql['observacoes'].'"
+                            value=""
+                    >Exibir
+                    </button>
+                    '.
+                    ' '.
+                    '<a href="../_controllers/ccontatos.php?action=excluir&id='.$sql['id_contato'].'">
+                    <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button>
+                    <a/>'.'</td>
+                '
+                ;
                         echo '</tr>';
                     }
                 ?>
@@ -108,7 +88,6 @@
 </section>
 
 <div>
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
@@ -127,7 +106,6 @@
             var idgrupo = button.data('idgrupo')
             var idcidade = button.data('idcidade')
             var idestado = button.data('idestado')
-            var selec = $("#opt").val();
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
@@ -142,7 +120,6 @@
             modal.find('#grupos').val(idgrupo)
             modal.find('#idcidade').val(idcidade)
             modal.find('#idestado').val(idestado)
-            //$("#grupos").val(selec);
         })
     </script>
 </div>

@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="aniversario" class="col-sm-2 col-form-label">Aniversário: </label>
+                            <label for="nascimento" class="col-sm-2 col-form-label">Aniversário: </label>
                             <div class="col-sm-4">
                                 <input class="form-control" type="date" id="nascimento" name="nascimento" required>
                             </div>

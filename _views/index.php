@@ -9,7 +9,7 @@
 ?>
 
 <!doctype html>
-<html class="no-js" lang="pt_BR">
+<html class="no-js" lang="pt_BR" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/sticky-footer.css" rel="stylesheet">
     <style type="text/css">
         .carregando{
             color:#ff0000;
@@ -132,12 +133,6 @@
                         <span class="carregando">Aguarde, carregando...</span>
                         <select class="form-control" id="cidades" name="cidades" required="required">
                             <option value="">selecione</option>
-                            <!--?php Desativa na implementação do JSON
-                               /* foreach (crud::select(select::cidades()) as $cidades)
-                                {
-                                    echo '<option value="'.$cidades['id_cidade'].'">'.$cidades['nome']."</option>";
-                                } */
-                            ?> -->
                         </select>
                     </div>
                 </div>
@@ -157,17 +152,17 @@
     <div class="col-md-2"></div>
 </section>
 
-<footer>
+<!--[ Style for footer ]-->
+
+<footer class="footer">
     <div class="container">
-        <br/>
-        <hr/>
         <?php
-        echo '<span class="blockquote-footer">'."Usuário:<em> ". $_SESSION['login']."</em>".'</span>';
+        echo '<span class="text-muted">Usuário: '.$_SESSION['login'].' Contatos: $contatos Favoritos: $favoritos</span>
+        ';
         ?>
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
