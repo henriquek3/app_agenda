@@ -1,4 +1,6 @@
-<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
+<?php require_once '../_controllers/start_sessao.php';
+require_once '../_models/crud.php';
+require_once 'view.php';
 
 /**
  * Created by PhpStorm.
@@ -9,34 +11,21 @@
 ?>
 
 <!doctype html>
-<html class="no-js" lang="pt_BR" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Agenda</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="icon" href="img/favicon">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/sticky-footer.css" rel="stylesheet">
-    <style type="text/css">
-        .carregando{
-            color:#ff0000;
-            display:none;
-        }
-    </style>
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
+<html lang="pt-br">
+<?php $style = '<style type="text/css">
+                    .carregando{
+                    color:#ff0000;
+                    display:none;
+                }
+                </style>';
+view::header($style) ?>
 
 <body>
 <header>
     <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
-        <div class="nav navbar-nav">
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-toggleable-md" id="navbarResponsive">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
@@ -152,23 +141,12 @@
     <div class="col-md-2"></div>
 </section>
 
-<!--[ Style for footer ]-->
+<?php view::footer(); ?>
 
-<footer class="footer">
-    <div class="container">
-        <?php
-        echo '<span class="text-muted">Usuário: '.$_SESSION['login'].' Contatos: $contatos Favoritos: $favoritos</span>
-        ';
-        ?>
-    </div>
-</footer>
-
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-
-
-
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery3.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
     google.load("jquery", "1.4.2");

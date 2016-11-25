@@ -24,8 +24,10 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-light bg-faded navbar-fixed-top" style="background-color: lightsteelblue">
-        <div class="nav navbar-nav">
+    <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-toggleable-md" id="navbarResponsive">
             <a class="navbar-brand" href="index.php"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
@@ -68,24 +70,6 @@
 </div>
 
 <section class="container">
-    <!--<div class="col-lg-6">
-        <h2>Cadastro de Grupos</h2>
-        <fieldset class="form-control">
-            <form name="frmGrupos" method="post" action="../_controllers/cgrupos.php">
-                <div class="form-group row">
-                    <label for="grupos" class="col-xs-2 col-form-label">Nome: </label>
-                    <div class="col-xs-10">
-                        <input class="form-control" type="text" placeholder="Grupos"
-                        id="grupos" name="grupos">
-                    </div>
-                </div>
-                <div class="col-xs-12" align="right">
-                    <button type="submit" class="btn btn-outline-primary">Incluir</button>
-                    <button type="reset" class="btn btn-outline-info">Limpar</button>
-                </div>
-            </form>
-        </fieldset>
-    </div> -->
     <div class="col-xs-6"></div>
     <div class="col-xs-6">
         <table class="table table-hover">
@@ -115,12 +99,10 @@
         </table>
     </div>
 </section>
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery3.min.js"></script>
 <script>
     $('#modalGrupos').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal

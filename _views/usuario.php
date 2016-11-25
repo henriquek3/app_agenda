@@ -24,7 +24,10 @@
     <body>
         <header>
             <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
-                <div class="nav navbar-nav">
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-toggleable-md" id="navbarResponsive">
                     <a class="navbar-brand" href="#"><img src="img/favicon" width="30" height="30" class="d-inline-block align-top" alt="Agenda"> Agenda</a>
                     <ul class="nav navbar-nav">
                     </ul>
@@ -71,10 +74,10 @@
             <div class="col-lg-4"></div>
         </section>
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery3.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
