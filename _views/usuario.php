@@ -32,7 +32,7 @@
                     <ul class="nav navbar-nav">
                     </ul>
                     <form class="form-inline float-lg-right">
-                        <a href="../_controllers/sair.php"><button type="button" class="btn btn-outline-info">Sair</button></a>
+                        <a href="../_controllers/sair.php"><button type="button" class="btn btn-info">Sair</button></a>
                     </form>
                 </div>
             </nav>
@@ -64,7 +64,7 @@
                     <div class="form-group row">
                         <div class="col-xs-12" align="right">
                         <button type="submit" class="btn btn-outline-primary">Incluir</button>
-                        <button type="reset" class="btn btn-outline-info">Limpar</button>
+                        <button type="reset" class="btn btn-info">Limpar</button>
                         </div>
                     </div>
                 </form>

@@ -1,4 +1,5 @@
-<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php'; require_once 'view.php';
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
+ require_once 'view.php';
 
     $modal ="";
     if (isset($_GET['action'])){
@@ -32,8 +33,8 @@
             </ul><!-- Form do NAV -->
             <form class="form-inline float-lg-right" method="post" name="frmPesquisar" action="pesquisar.php">
                 <input class="form-control" type="text" placeholder="Pesquisar" name="contato">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-                <a href="../_controllers/sair.php"><button type="button" class="btn btn-outline-info">Sair</button></a>
+                <button class="btn btn-success" type="submit">Buscar</button>
+                <a href="../_controllers/sair.php"><button type="button" class="btn btn-info">Sair</button></a>
             </form><!-- Form do NAV FIM -->
         </div>
     </nav>
@@ -53,7 +54,7 @@
             </div>
             <div class="col-xs-12" align="right">
                 <button type="submit" class="btn btn-outline-primary">Incluir</button>
-                <button type="reset" class="btn btn-outline-info">Limpar</button>
+                <button type="reset" class="btn btn-info">Limpar</button>
             </div>
         </form>
     </fieldset>
@@ -79,32 +80,47 @@
                         echo '<th scope="row">'.$gridGrupo['indice'].'</th>';
                         echo '<td>'.$gridGrupo['nome'].'</td>';
                         echo '<td>'.' '.'</td>';
-                        echo '<td align="right"><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalGrupos" data-idgrupo="'.$gridGrupo['id_grupo'].'" data-whatever="'.$gridGrupo['nome'].'">Alterar</button>'.
+                        echo '<td align="right">
+                        <button type="button" class="btn btn-outline-primary btn-sm" 
+                        data-toggle="modal" data-target="#modalGrupos" 
+                        data-idgrupo="'.$gridGrupo['id_grupo'].'" data-nome="'.$gridGrupo['nome'].'">Alterar</button>'.
                             ' '.
-                            '<a href="../_controllers/cgrupos.php?action=excluir&id='.$gridGrupo['id_grupo'].'"><button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
+                            '<a href="../_controllers/cgrupos.php?action=excluir&id='.$gridGrupo['id_grupo'].'">
+                            <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button><a/>'.'</td>';
                         echo '</tr>';
                     }
                 ?>
             </tbody>
         </table>
     </div>
+<?php include_once '../_views/grupos_modal.php'; ?>
 </section>
-<?php
-    view::footer();
-?>
+
+
+<footer class="footer">
+<div class="container">
+<span class="text-muted">Usuário: <?php echo $_SESSION['login']; ?> </span>
+</div>
+</footer>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script>
     $('#modalGrupos').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        var recipient2 = button.data('idgrupo')
+        var nome = button.data('nome') // Extract info from data-* attributes
+        var idgrupo = button.data('idgrupo')
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
-        modal.find('.modal-title').text('Alterar grupo: ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-        modal.find('.modal-body textarea').val(recipient2)
+        modal.find('.modal-title').text('Alterar grupo: ' + nome)
+        modal.find('#nome').val(nome)
+        modal.find('#idgrupo').val(idgrupo)
     })
 </script>
+
 <?php
 if ($modal == 'error'){
     ?>
@@ -115,6 +131,7 @@ if ($modal == 'error'){
     </script>
     <?php
 }
+
 ?>
 </body>
 </html>

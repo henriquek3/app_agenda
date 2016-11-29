@@ -41,8 +41,8 @@ view::header($style) ?>
             <!-- Form do NAV -->
             <form class="form-inline float-lg-right" method="post" name="frmPesquisar" action="pesquisar.php">
                 <input class="form-control" type="text" placeholder="Pesquisar" name="contato">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-                <a href="../_controllers/sair.php"><button type="button" class="btn btn-outline-info">Sair</button></a>
+                <button class="btn btn-success" type="submit">Buscar</button>
+                <a href="../_controllers/sair.php"><button type="button" class="btn btn-info">Sair</button></a>
             </form>
             <!-- Form do NAV FIM -->
         </div>
@@ -133,7 +133,7 @@ view::header($style) ?>
                 </div>
                 <div class="col-xs-12" align="right">
                     <button type="submit" class="btn btn-outline-primary">Incluir</button>
-                    <button type="reset" class="btn btn-outline-info">Limpar</button>
+                    <button type="reset" class="btn btn-info">Limpar</button>
                 </div>
             </form>
         </fieldset>
@@ -141,7 +141,11 @@ view::header($style) ?>
     <div class="col-md-2"></div>
 </section>
 
-<?php view::footer(); ?>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Usuário: <?php echo $_SESSION['login']; ?> </span>
+    </div>
+</footer>
 
 <script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>

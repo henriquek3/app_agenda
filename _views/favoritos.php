@@ -43,8 +43,8 @@
                 <!-- Form do NAV -->
                 <form class="form-inline float-lg-right" method="post" name="frmPesquisar" action="pesquisar.php">
                     <input class="form-control" type="text" placeholder="Pesquisar" name="contato">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    <a href="../_controllers/sair.php"><button type="button" class="btn btn-outline-info">Sair</button></a>
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                    <a href="../_controllers/sair.php"><button type="button" class="btn btn-info">Sair</button></a>
                 </form>
                 <!-- Form do NAV FIM-->
             </div>

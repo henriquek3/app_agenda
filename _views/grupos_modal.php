@@ -7,11 +7,6 @@
  */
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-</head>
-<body>
 <div class="bd-example">
     <div class="modal fade" id="myModalGrupo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -47,12 +42,12 @@
                     <form name="frmModal" method="post" action="../_controllers/cgrupos.php">
                         <div class="form-group row">
                             <div class="col-md-2 col-form-label">
-                                <label for="recipient-name" class="form-control-label">Grupo:</label>
+                                <label for="nome" class="form-control-label">Grupo:</label>
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="recipient-name" name="nomegrupo">
+                                <input type="text" class="form-control" id="nome" name="nomegrupo">
                             </div>
-                            <textarea class="sr-only" id="message-text" name="grupoid"></textarea>
+                            <input class="sr-only" id="idgrupo" name="grupoid">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
@@ -64,5 +59,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>

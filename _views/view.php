@@ -32,15 +32,4 @@ class view
             </head>';
         echo $header;
     }
-
-
-    public static function footer()
-    {
-        $footer = '<footer class="footer">';
-        $footer .= '<div class="container">';
-        $footer .= '<span class="text-muted">Usuário: ' . $_SESSION['login'] . '</span>';
-        $footer .= '</div>';
-        $footer .= '</footer>';
-        echo $footer;
-    }
 }
