@@ -20,12 +20,12 @@ class pdoinit extends PDO
      */
     public function __construct()
     {
-        $this->engine = 'pgsql';
+        $this->engine = 'mysql';
         $this->host = 'localhost';
-        $this->port = '5432';
+        $this->port = '3307';
         $this->dbname = 'agenda';
-        $this->user = 'postgres';
-        $this->pass = 'jean';
+        $this->user = 'root';
+        $this->pass = '84089554';
         $dns = $this->engine.':dbname='.$this->dbname.';host='.$this->host;
 
         try{

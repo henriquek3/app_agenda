@@ -1,4 +1,4 @@
-<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php';
+<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php'; include_once '../_views/grupos_modal.php'; require_once 'view.php';
 
     $modal ="";
     if (isset($_GET['action'])){
@@ -8,19 +8,9 @@
 ?>
 <!doctype html>
 <html class="no-js" lang="pt_BR">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Grupos</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon">
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
+<?php
+    view::header();
+?>
 <body>
 
 <header>
@@ -99,10 +89,9 @@
         </table>
     </div>
 </section>
-<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery3.min.js"></script>
+<?php
+    view::footer();
+?>
 <script>
     $('#modalGrupos').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal

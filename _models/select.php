@@ -9,7 +9,7 @@
 class select
 {
     public static function grupos($id){
-        $grupos = 'SELECT id_grupo, id_usuario, nome, rank() OVER (ORDER BY id_grupo) indice FROM grupos WHERE id_usuario='.$id;
+        $grupos = 'SELECT id_grupo, id_usuario, nome, @curRank := @curRank + 1 AS indice FROM grupos WHERE id_usuario='.$id;
         return $grupos;
     }
 
@@ -44,7 +44,7 @@ class select
                                 ct.endereco,
                                 ct.nascimento,
                                 ct.observacoes,
-                                rank() OVER (ORDER BY id_contato) indice
+                                @curRank := @curRank + 1 AS indice
                     from 		contatos	ct,
                                 grupos		gp,
                                 cidades		cd,
@@ -71,7 +71,7 @@ class select
                                 ct.endereco,
                                 ct.nascimento,
                                 ct.observacoes,
-                                rank() OVER (ORDER BY id_contato) indice
+                                @curRank := @curRank + 1 AS indice
                     from 		contatos	ct,
                                 grupos		gp,
                                 cidades		cd,
@@ -102,7 +102,7 @@ class select
                                 ct.endereco,
                                 ct.nascimento,
                                 ct.observacoes,
-                                rank() OVER (ORDER BY id_contato) indice
+                                @curRank := @curRank + 1 AS indice
                     from 		contatos	ct,
                                 grupos		gp,
                                 cidades		cd,

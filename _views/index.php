@@ -12,14 +12,14 @@ require_once 'view.php';
 
 <!doctype html>
 <html lang="pt-br">
-<?php $style = '<style type="text/css">
+<head>
+<?php  $style = '<style type="text/css">
                     .carregando{
                     color:#ff0000;
                     display:none;
                 }
                 </style>';
 view::header($style) ?>
-
 <body>
 <header>
     <nav class="navbar navbar-light bg-faded" style="background-color: lightsteelblue">
@@ -112,7 +112,7 @@ view::header($style) ?>
                             <?php
                                 foreach (crud::select(select::estados()) as $estados)
                                 {
-                                    echo '<option value="'.$estados['id_estado'].'">'.$estados['nome']."</option>";
+                                    echo '<option value="'.$estados['id_estado'].'">'.utf8_encode($estados['nome'])."</option>";
                                 }
                             ?>
                         </select>

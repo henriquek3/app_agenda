@@ -12,7 +12,7 @@ foreach (crud::select(select::cidadesIdEstado($id_estado)) as $row)
 {
     $selectCidades[] = array( //Transforma o $row em outro array pegando somente os campos necessarios
         'id'	=> $row['id_cidade'],
-        'nome' => $row['nome'],
+        'nome' => utf8_encode($row['nome']),
     );
 }
 echo(json_encode($selectCidades)); //Exibe o resultado do _request para que possa ser capturado pela pagina que enviou

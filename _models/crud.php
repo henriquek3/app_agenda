@@ -9,7 +9,7 @@
 class crud
 {
     public static function select($arg){
-        $pdo = new pdoinit();
+        $pdo = new Pdoinit();
         $result = $pdo->prepare($arg);
         $result->execute();
         $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -17,19 +17,19 @@ class crud
     }
 
     public static function insert($sql){
-        $pdo = new pdoinit();
+        $pdo = new Pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();
         return $result;
     }
     public static function deleta($sql){
-        $pdo = new pdoinit();
+        $pdo = new Pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();
     }
 
     public static function update($sql){
-        $pdo = new pdoinit();
+        $pdo = new Pdoinit();
         $result = $pdo->prepare($sql);
         $result->execute();
         return $result;
