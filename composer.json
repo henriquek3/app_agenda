@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "semantic/ui": "2.2.10",
+    "twbs/bootstrap": "4.0.0-alpha.6",
+    "components/jquery": "3.2.1"
+  }
+}
