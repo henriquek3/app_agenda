@@ -6,7 +6,7 @@
  * Date: 12/11/16
  * Time: 12:35
  */
-class pdoinit extends PDO
+class pdoinit extends \PDO
 {
     private $engine;
     private $host;
@@ -20,11 +20,11 @@ class pdoinit extends PDO
      */
     public function __construct()
     {
-        $this->engine = 'mysql';
-        $this->host = 'localhost';
+        $this->engine = 'pgsql';
+        $this->host = '185.169.96.133';
         $this->port = '3307';
-        $this->dbname = 'agenda';
-        $this->user = 'root';
+        $this->dbname = 'jksistem_agenda';
+        $this->user = 'jksistem_bdadmin';
         $this->pass = '84089554';
         $dns = $this->engine.':dbname='.$this->dbname.';host='.$this->host;
 

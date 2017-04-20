@@ -21,7 +21,7 @@
 
     if ($resultado) {
         echo "Dados inseridos com sucesso!";
-        header("location:/app_agenda/_views/contatos_iframe.php");
+        header("location:/_views/contatos_iframe.php");
         exit;
     }
     else{

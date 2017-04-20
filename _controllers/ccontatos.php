@@ -21,7 +21,7 @@ if (isset($_GET['action'])) //Obtem parametros pelo GET para saber qual cmd exec
 {
     $idContato = $_GET['id'];
     crud::deleta(delete::contatos($idContato));
-    header("location:/app_agenda/_views/contatos.php");
+    header("location:/_views/contatos.php");
     exit;
 }
 
@@ -41,7 +41,7 @@ if (isset($_POST['form_name']))
         $resultado = crud::insert(insert::contatos($nome,$celular,$email,$endereco,$nascimento,$favorito,$grupos,$observacoes,$id,$cidade));
 
         if ($resultado) {
-            header("location:/app_agenda/_views/contatos.php");
+            header("location:/_views/contatos.php");
             exit;
         }
     }

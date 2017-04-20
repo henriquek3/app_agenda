@@ -1,4 +1,8 @@
-<?php require_once 'pdo.php'; require_once 'delete.php'; require_once 'insert.php'; require_once 'select.php'; require_once 'update.php';
+<?php require_once 'pdo.php';
+require_once 'delete.php';
+require_once 'insert.php';
+require_once 'select.php';
+require_once 'update.php';
 /**
  * Created by PhpStorm.
  * User: jean

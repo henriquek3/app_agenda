@@ -1,4 +1,6 @@
-<?php session_start(); require '../_models/crud.php'; //require '../_models/select.php';
+<?php session_start();
+require '../_models/crud.php';
+//require '../_models/select.php';
 /**
  * Created by PhpStorm.
  * User: Jean Freitas
@@ -23,15 +25,15 @@ if (!empty($_POST['login'])){
                 echo 'Usuário conectado com sucesso';
                 $_SESSION['id_usuario'] = $id;
                 $_SESSION['login'] = $login;
-                header("location:/app_agenda/_views/index.php");
+                header("location:/_views/index.php");
                 exit;
             } else {
-                header('location:/app_agenda/_views/error_pass.php');
+                header('location:/_views/error_pass.php');
                 exit;
             }
         }
-        header('location:/app_agenda/_views/error_find_user.php');
+        header('location:/_views/error_find_user.php');
         exit;
     }
 }
-header('location:/app_agenda/index.html');
+header('location:/index.html');

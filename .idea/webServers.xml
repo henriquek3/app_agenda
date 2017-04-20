@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3103a5ff-9d64-4e7f-9518-4b9627c8beea" name="jksistemas" url="http://ftp.jksistemas.com.br">
+        <fileTransfer host="ftp.jksistemas.com.br" port="21" rootFolder="/agenda.jksistemas.com.br">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

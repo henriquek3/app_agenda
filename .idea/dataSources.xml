@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="jksistem_agenda@185.169.96.133" uuid="270ba4b9-729e-4d4a-b415-f6d723335976">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://185.169.96.133:5432/jksistem_agenda</jdbc-url>
+    </data-source>
+  </component>
+</project>

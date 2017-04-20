@@ -25,7 +25,7 @@ $resultado = crud::insert(insert::usuarios($nome,$login,$password));
 
     if ($resultado) {
         echo "Dados inseridos com sucesso!";
-        header("location:/app_agenda/_controllers/sair.php");
+        header("location:/_controllers/sair.php");
         exit;
     }
     else{
