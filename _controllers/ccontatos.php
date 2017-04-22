@@ -1,11 +1,8 @@
-<?php require_once '../_controllers/start_sessao.php'; require_once '../_models/crud.php';
+<?php
 
-/**
- * Created by PhpStorm.
- * User: Jean Freitas
- * Date: 29/10/2016
- * Time: 23:34
- */
+require_once '../_controllers/start_sessao.php';
+//require_once '../_models/crud.php';
+
 
 $id_estado = $_REQUEST['id_estado']; //Recebe o idEstado por request
 foreach (crud::select(select::cidadesIdEstado($id_estado)) as $row)

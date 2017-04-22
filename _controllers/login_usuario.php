@@ -1,19 +1,17 @@
 <?php session_start();
-require '../_models/crud.php';
+
+require '../vendor/autoload.php';
+
+//require '../_models/crud.php';
 //require '../_models/select.php';
-/**
- * Created by PhpStorm.
- * User: Jean Freitas
- * Date: 29/10/2016
- * Time: 23:34
- */
+
 
 if (!empty($_POST['login'])){
     $user = $_POST['login'];
     if (!empty($_POST['senha'])){
         $pw = $_POST['senha'];
 
-        $sql = crud::select(select::usuarios($user));
+        $sql = InformativoIPB\Models\crud::select(InformativoIPB\Models\select::usuarios($user));
         foreach ($sql as $sessao){
             $login = $sessao['login'];
             $password = $sessao['password'];

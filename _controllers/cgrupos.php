@@ -1,4 +1,8 @@
-<?php require_once 'start_sessao.php'; require_once '../_models/crud.php';
+<?php
+
+require_once 'start_sessao.php';
+
+//require_once '../_models/crud.php';
 
     if(isset($_POST['grupos'])){
         $nome = $_POST['grupos'];

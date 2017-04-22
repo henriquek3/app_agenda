@@ -1,4 +1,6 @@
-<?php include_once ('../_models/crud.php');
+<?php
+
+//include_once ('../_models/crud.php');
 
 /**
  * Created by PhpStorm.

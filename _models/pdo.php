@@ -6,7 +6,10 @@
  * Date: 12/11/16
  * Time: 12:35
  */
-class pdoinit extends \PDO
+
+namespace InformativoIPB\Models;
+
+class Pdoinit extends \PDO
 {
     private $engine;
     private $host;

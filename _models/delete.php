@@ -5,6 +5,9 @@
  * Date: 13/11/16
  * Time: 14:23
  */
+
+namespace InformativoIPB\Models;
+
 class delete
 {
     public static function grupos($id){

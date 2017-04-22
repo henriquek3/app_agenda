@@ -1,17 +1,18 @@
 {
-  "name": "vendor_name/package_name",
-  "description": "description_text",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
+  "require": {
+    "semantic/ui": "^2.2",
+    "phpclasses/easy-db-work": ">=1.1"
+  },
+  "repositories": [
     {
-      "name": "author's name",
-      "email": "email@example.com"
+      "type": "composer",
+      "url": "https:\/\/www.phpclasses.org\/"
     }
   ],
-  "require": {
-    "semantic/ui": "2.2.10",
-    "twbs/bootstrap": "4.0.0-alpha.6",
-    "components/jquery": "3.2.1"
+  "autoload": {
+    "psr-4": {
+      "InformativoIPB\\Controllers\\": "_controllers/",
+      "InformativoIPB\\Models\\": "_models/"
+    }
   }
 }
